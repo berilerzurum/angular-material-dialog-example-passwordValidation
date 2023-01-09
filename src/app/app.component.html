@@ -1,0 +1,74 @@
+<div class="example-container mat-elevation-z8">
+
+
+  <mat-table #table [dataSource]="dataSource">
+
+    <!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
+
+     <ng-container matColumnDef="id">
+       <mat-header-cell *matHeaderCellDef mat-sort-header> ID </mat-header-cell>
+       <mat-cell *matCellDef="let person"> {{person.id}} </mat-cell>
+     </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="name">
+      <mat-header-cell *matHeaderCellDef><b> Name</b> </mat-header-cell>
+      <mat-cell *matCellDef="let person"> {{person.name}} </mat-cell>
+    </ng-container>
+
+    <!-- Surname Column -->
+    <ng-container matColumnDef="surname">
+      <mat-header-cell *matHeaderCellDef><b> Surname </b> </mat-header-cell>
+      <mat-cell *matCellDef="let person"> {{person.surname}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="password">
+      <mat-header-cell *matHeaderCellDef><b> Password </b> </mat-header-cell>
+      <mat-cell *matCellDef="let person"> {{person.password}} </mat-cell>
+    </ng-container>
+
+    <!-- Phone Column -->
+    <ng-container matColumnDef="phone">
+      <mat-header-cell *matHeaderCellDef><b> Phone</b> </mat-header-cell>
+      <mat-cell *matCellDef="let person"> {{person.phone}} </mat-cell>
+    </ng-container>
+    
+    <ng-container matColumnDef="edit">
+      <mat-header-cell *matHeaderCellDef mat-sort-header><b> Edit</b> </mat-header-cell>
+      <mat-cell *matCellDef="let person; let i =index" >
+         <button mat-icon-button 
+          matTooltip= "Click to Edit"
+           (click)="showPrompt(person, i)" 
+           color="primary" >
+        <span class="material-icons">edit</span>
+        </button> </mat-cell>
+    </ng-container>
+        
+
+
+    <ng-container matColumnDef="delete">
+      <mat-header-cell *matHeaderCellDef mat-sort-header><b> Delete</b> </mat-header-cell>
+      <mat-cell *matCellDef="let person; let i =index" >
+        <button mat-mini-fab
+         color="primary"
+         matTooltip= "Click to Delete"
+         (click)="delete(i)">
+          <mat-icon>delete</mat-icon>
+        </button></mat-cell>
+    </ng-container>
+
+
+
+
+    
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+</div>
+
+<h2 *ngIf="dataFromDialog">
+  <!-- Data from Angular material dialog : {{ dataFromDialog | json }} -->
+</h2>
+
+<button mat-raised-button color="primary" (click)="addnew()">Add new</button>

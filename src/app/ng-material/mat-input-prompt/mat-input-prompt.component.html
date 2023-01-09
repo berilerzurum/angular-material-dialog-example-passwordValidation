@@ -1,0 +1,60 @@
+<div class="form-container">
+  <h2 mat-dialog-title>Angular material dialog prompt</h2>
+  <mat-dialog-content>
+    <form [formGroup]="form">
+
+      <mat-form-field appearance="standard">
+        <mat-label>Name</mat-label>
+        <input matInput placeholder="Enter your name" formControlName="name" />
+      </mat-form-field>
+
+      <mat-form-field appearance="standard">
+        <mat-label>Surname</mat-label>
+        <input
+          matInput
+          placeholder="Surname"
+          formControlName="surname"
+        />
+      </mat-form-field>
+
+
+      <mat-form-field appearance="standard">
+        <mat-label>Phone</mat-label>
+        <input
+          matInput
+          placeholder="Phone"
+          formControlName="phone"
+        />
+      </mat-form-field>
+
+
+      <mat-form-field appearance="standard">
+        <mat-label>Password</mat-label>
+        <input
+          matInput
+          placeholder="Password"
+          formControlName="password"
+        />
+        <mat-error *ngIf="form.get('password').hasError('required')">
+          Password is required
+        </mat-error>
+        <mat-error *ngIf="form.get('password').hasError('lengthError')">
+          Password must be at least 8, maximum 12 characters long.
+       </mat-error>
+        <mat-error *ngIf="form.get('password').hasError('invalidPassword')">
+          Password must contain at least one lowercase letter, uppercase letter, number, and special character.
+        </mat-error>
+        
+      </mat-form-field>
+
+    </form>
+  </mat-dialog-content>
+  <mat-dialog-actions>
+    <button mat-raised-button (click)="close(form.value)" color="primary">
+      Close
+    </button>
+    <button mat-raised-button color="primary" (click)="submit(form.value)">
+      Submit
+    </button>
+  </mat-dialog-actions>
+</div>
