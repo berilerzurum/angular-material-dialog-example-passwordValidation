@@ -102,7 +102,7 @@ delete( index:number): void{
 
   showPrompt(data: Person, index: number): void {
     
-      console.log("data-->",data);
+      //console.log("data-->",data);
     const currentData= {...data};
     this.currentIndex=index;
     const dialogRef = this.dialog.open(MatInputPromptComponent, {

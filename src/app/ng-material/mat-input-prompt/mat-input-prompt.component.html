@@ -1,14 +1,14 @@
+<form [formGroup]="form">
 <div class="form-container">
   <h2 mat-dialog-title>Angular material dialog prompt</h2>
   <mat-dialog-content>
-    <form [formGroup]="form">
 
-      <mat-form-field appearance="standard">
+      <mat-form-field appearance="outline">
         <mat-label>Name</mat-label>
         <input matInput placeholder="Enter your name" formControlName="name" />
       </mat-form-field>
 
-      <mat-form-field appearance="standard">
+      <mat-form-field appearance="outline">
         <mat-label>Surname</mat-label>
         <input
           matInput
@@ -18,7 +18,7 @@
       </mat-form-field>
 
 
-      <mat-form-field appearance="standard">
+      <mat-form-field appearance="outline">
         <mat-label>Phone</mat-label>
         <input
           matInput
@@ -28,7 +28,7 @@
       </mat-form-field>
 
 
-      <mat-form-field appearance="standard">
+      <mat-form-field appearance="outline">
         <mat-label>Password</mat-label>
         <input
           matInput
@@ -47,7 +47,7 @@
         
       </mat-form-field>
 
-    </form>
+    
   </mat-dialog-content>
   <mat-dialog-actions>
     <button mat-raised-button (click)="close(form.value)" color="primary">
@@ -58,3 +58,4 @@
     </button>
   </mat-dialog-actions>
 </div>
+</form>

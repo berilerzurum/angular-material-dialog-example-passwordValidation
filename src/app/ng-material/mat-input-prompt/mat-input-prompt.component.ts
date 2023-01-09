@@ -24,7 +24,7 @@ export class MatInputPromptComponent implements OnInit {
   }
   
   ngOnInit(): void{
-console.log("ngonit içi" ,this.localData);
+//console.log("ngonit içi" ,this.localData);
     this.initForm();
   }
 
