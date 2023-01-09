@@ -6,6 +6,9 @@
       <mat-form-field appearance="outline">
         <mat-label>Name</mat-label>
         <input matInput placeholder="Enter your name" formControlName="name" />
+        <mat-error *ngIf="form.get('name').hasError('required')">
+          Name is required.
+       </mat-error>
       </mat-form-field>
 
       <mat-form-field appearance="outline">
@@ -15,6 +18,9 @@
           placeholder="Surname"
           formControlName="surname"
         />
+        <mat-error *ngIf="form.get('surname').hasError('required')">
+          Surname is required.
+       </mat-error>
       </mat-form-field>
 
 
@@ -25,6 +31,9 @@
           placeholder="Phone"
           formControlName="phone"
         />
+        <mat-error *ngIf="form.get('phone').hasError('required')">
+          Phone is required.
+       </mat-error>
       </mat-form-field>
 
 
